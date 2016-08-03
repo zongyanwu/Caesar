@@ -8,17 +8,32 @@ int main(){
 
     char cypher[100];
 
-
+    printf("Caesar Decrypt (charset=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\")\n\n");
+    printf("Enter ciphertext : ");
     gets(cypher);
 
+    printf("---------------------------------------------------\n");
+    printf(" key   plaintext\n");
+    printf("---------------------------------------------------\n");
     int i=0;
 
     for(i=1; i<=52; i++){
         int j=0;
-        printf("%d. ",i);
+        if(i<10)
+            printf(" %d.    ",i);
+        else
+            printf(" %d.   ",i);
         for(j=0; j<strlen(cypher); j++){
             if(cypher[j]==' ')
                 printf(" ");
+            else if(cypher[j]=='!')
+                printf("!");
+            else if(cypher[j]=='.')
+                printf(".");
+            else if(cypher[j]=='?')
+                printf("?");
+            else if(cypher[j]=='\'')
+                printf("'");
             else{
                 int k=0;
                 for(k=0; k<strlen(text); k++){
@@ -39,7 +54,8 @@ int main(){
             }
 
         }
-        printf("\n");
+        printf("\n---------------------------------------------------\n");
     }
+    system("PAUSE");
 
 }
